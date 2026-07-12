@@ -22,3 +22,14 @@ variable "aks_name" {
   description = "AKS Cluster Name"
   type        = string
 }
+variable "aks_node_count" {
+  description = "Number of AKS nodes"
+  type        = number
+  default     = 1
+}
+
+variable "aks_vm_size" {
+  description = "AKS VM Size"
+  type        = string
+  default     = "Standard_B2s_v2"
+}
