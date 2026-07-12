@@ -1,0 +1,14 @@
+venv/
+.git/
+.gitignore
+README.md
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+logs/
+terraform/
+ansible/
+monitoring/
+tests/
+docs/
