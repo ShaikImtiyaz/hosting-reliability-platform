@@ -11,6 +11,8 @@ __pycache__/
 .terraform/
 *.tfstate
 *.tfstate.*
+*.tfplan
+terraform.tfstate.backup
 
 # Logs
 logs/
