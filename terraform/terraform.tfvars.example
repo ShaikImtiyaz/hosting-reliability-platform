@@ -1,9 +1,9 @@
-subscription_id = "15122a17-4555-458c-829b-cf14a3dc0dcb"
+subscription_id     = "<your-subscription-id>"
 
-location = "Central India"
+location            = "Central India"
 
 resource_group_name = "rg-hosting-reliability-dev"
 
-acr_name = "acrhostingrel001"
+acr_name            = "your-acr-name"
 
-aks_name = "aks-hosting-reliability"
+aks_name            = "aks-hosting-reliability"
