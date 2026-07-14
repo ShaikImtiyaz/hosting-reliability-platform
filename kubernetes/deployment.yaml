@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hosting-reliability-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hosting-reliability-app
+  template:
+    metadata:
+      labels:
+        app: hosting-reliability-app
+    spec:
+      containers:
+      - name: hosting-reliability-app
+        image: acrhostingrel002.azurecr.io/hosting-reliability-platform:v1
+        ports:
+        - containerPort: 8000
+        imagePullPolicy: Always
