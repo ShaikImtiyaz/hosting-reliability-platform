@@ -2,7 +2,6 @@ from flask import Flask
 from health import health
 from metrics import metrics
 from config import *
-import os
 
 import os
 import socket
@@ -22,12 +21,13 @@ def home():
         "environment": os.getenv("APP_ENV", "development"),
         "version": os.getenv("APP_VERSION", "1.0.0"),
         "status": "Running",
-        "hostname": socket.gethostname()
+        "hostname": socket.gethostname(),
+        "database": os.getenv("DB_USER")
     }
 
 
 @app.route("/health")
-def app_health()
+def app_health():
     return {
         "status": "UP"
     }

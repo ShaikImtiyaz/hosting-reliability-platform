@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: hosting-reliability-app
-        image: acrhostingrel002.azurecr.io/hosting-reliability-platform:v1
+        image: acrhostingrel002.azurecr.io/hosting-reliability-platform:v4
         imagePullPolicy: Always
 
         ports:
@@ -27,6 +27,9 @@ spec:
         envFrom:
         - configMapRef:
             name: hosting-config
+
+        - secretRef:
+            name: hosting-secret
 
         readinessProbe:
           httpGet:
