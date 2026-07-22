@@ -2,31 +2,32 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hosting-reliability-app
+
 spec:
   replicas: 2
+
   selector:
     matchLabels:
       app: hosting-reliability-app
+
   template:
     metadata:
       labels:
         app: hosting-reliability-app
+
     spec:
       containers:
       - name: hosting-reliability-app
         image: acrhostingrel002.azurecr.io/hosting-reliability-platform:v1
+        imagePullPolicy: Always
+
         ports:
         - containerPort: 8000
 
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "100m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
+        envFrom:
+        - configMapRef:
+            name: hosting-config
 
-        imagePullPolicy: Always
         readinessProbe:
           httpGet:
             path: /health
@@ -44,3 +45,11 @@ spec:
           periodSeconds: 20
           timeoutSeconds: 2
           failureThreshold: 3
+
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
