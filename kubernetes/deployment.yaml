@@ -6,6 +6,12 @@ metadata:
 spec:
   replicas: 2
 
+  strategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxUnavailable: 1
+          maxSurge: 1
+
   selector:
     matchLabels:
       app: hosting-reliability-app
@@ -18,7 +24,7 @@ spec:
     spec:
       containers:
       - name: hosting-reliability-app
-        image: acrhostingrel002.azurecr.io/hosting-reliability-platform:v4
+        image: acrhostingrel002.azurecr.io/hosting-reliability-platform:v5
         imagePullPolicy: Always
 
         ports:

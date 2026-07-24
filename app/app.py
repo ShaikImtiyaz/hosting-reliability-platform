@@ -19,7 +19,7 @@ def home():
 
         "application": os.getenv("APP_NAME", "reliability-platform"),
         "environment": os.getenv("APP_ENV", "development"),
-        "version": os.getenv("APP_VERSION", "1.0.0"),
+        "version": os.getenv("APP_VERSION", "1.1.0"),
         "status": "Running",
         "hostname": socket.gethostname(),
         "database": os.getenv("DB_USER")
